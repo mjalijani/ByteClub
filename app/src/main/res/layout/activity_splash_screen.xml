@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
-        android:background="@color/primary_dark"
+        android:background="@color/secondary"
         tools:context=".view.activity.SplashScreenActivity">
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/primary"
             android:fontFamily="cursive"
             android:text="Byte Club"/>
 
