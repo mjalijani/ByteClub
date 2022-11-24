@@ -1,4 +1,4 @@
-package com.game.byteclub
+package com.game.byteclub.view.activity
 
 import android.content.Intent
 import android.os.Build
@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.game.byteclub.R
 import com.game.byteclub.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity(), AnimationListener {

@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:background="@color/primary_dark"
-        tools:context=".SplashScreenActivity">
+        tools:context=".view.activity.SplashScreenActivity">
 
         <TextView
             android:id="@+id/welcome_tv"
