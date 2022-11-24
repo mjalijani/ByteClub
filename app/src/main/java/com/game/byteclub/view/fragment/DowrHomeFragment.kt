@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.game.byteclub.R
 import com.game.byteclub.databinding.FragmentDowrHomeBinding
+import com.game.byteclub.viewModel.dowr.DowrHomeViewModel
 
 
 class DowrHomeFragment : Fragment() {
@@ -15,11 +16,13 @@ class DowrHomeFragment : Fragment() {
         FragmentDowrHomeBinding.inflate(layoutInflater)
     }
 
+    private val viewModel : DowrHomeViewModel by lazy {
+        DowrHomeViewModel()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
+        binding.viewModel = viewModel
     }
 
     override fun onCreateView(

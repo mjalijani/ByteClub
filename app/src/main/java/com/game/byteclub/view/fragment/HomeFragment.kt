@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.game.byteclub.R
 import com.game.byteclub.databinding.FragmentHomeBinding
+import com.game.byteclub.viewModel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
@@ -15,8 +16,13 @@ class HomeFragment : Fragment() {
         FragmentHomeBinding.inflate(layoutInflater)
     }
 
+    private val viewModel : HomeViewModel by lazy {
+        HomeViewModel()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.viewModel = viewModel
     }
 
     override fun onCreateView(
@@ -24,6 +30,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
 
         binding.testBtn.setOnClickListener{
             Navigation.findNavController(binding.testBtn).navigate(R.id.action_homeFragment_to_dowrHomeFragment)
