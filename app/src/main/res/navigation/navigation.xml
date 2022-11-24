@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/dowrHomeFragment"
-        android:name="com.game.byteclub.view.fragment.DowrHomeFragment"
+        android:name="com.game.byteclub.view.fragment.dowr.DowrHomeFragment"
         android:label="DowrHomeFragment" />
 </navigation>

@@ -1,11 +1,10 @@
-package com.game.byteclub.view.fragment
+package com.game.byteclub.view.fragment.dowr
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.game.byteclub.R
 import com.game.byteclub.databinding.FragmentDowrHomeBinding
 import com.game.byteclub.viewModel.dowr.DowrHomeViewModel
 
