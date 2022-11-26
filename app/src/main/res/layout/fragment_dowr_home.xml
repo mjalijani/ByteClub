@@ -2,11 +2,9 @@
 <layout>
 
     <data>
-
         <variable
             name="viewModel"
             type="com.game.byteclub.viewModel.dowr.DowrHomeViewModel" />
-
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,5 +22,4 @@
             android:text="@{ viewModel.text }" />
 
     </FrameLayout>
-
 </layout>

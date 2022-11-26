@@ -3,8 +3,6 @@
 
     <data>
 
-
-
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,5 +24,4 @@
             android:textStyle="bold"/>
 
     </FrameLayout>
-
 </layout>

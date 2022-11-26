@@ -33,5 +33,4 @@ class GamesAdapter(private val gamesList: MutableList<String>) : RecyclerView.Ad
 
     }
 
-
 }
