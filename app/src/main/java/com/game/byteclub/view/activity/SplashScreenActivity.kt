@@ -20,10 +20,7 @@ class SplashScreenActivity : AppCompatActivity(), AnimationListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
-
         setContentView(binding.root)
-
         hideActionBar()
         animateWelcome()
 
@@ -47,7 +44,6 @@ class SplashScreenActivity : AppCompatActivity(), AnimationListener {
         splashAnimation.setAnimationListener(this)
     }
 
-
     override fun onAnimationStart(p0: Animation?) {
 
     }
@@ -61,6 +57,4 @@ class SplashScreenActivity : AppCompatActivity(), AnimationListener {
     override fun onAnimationRepeat(p0: Animation?) {
 
     }
-
-
 }
