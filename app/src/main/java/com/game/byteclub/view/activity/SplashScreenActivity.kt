@@ -3,8 +3,8 @@ package com.game.byteclub.view.activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
-import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
@@ -21,19 +21,16 @@ class SplashScreenActivity : AppCompatActivity(), AnimationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        hideActionBar()
+        hideStatusBar()
         animateWelcome()
-
     }
 
-    private fun hideActionBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
+    private fun hideStatusBar() {
+        if (Build.VERSION.SDK_INT >= 30) {
+            window.decorView.windowInsetsController?.hide(WindowInsets.Type.statusBars())
         } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+            actionBar?.hide()
         }
     }
 
