@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.game.byteclub.R
 import com.game.byteclub.databinding.FragmentHomeBinding
 import com.game.byteclub.viewModel.HomeViewModel
 
@@ -30,4 +32,10 @@ class HomeFragment : Fragment() {
     ): View? {
         return binding.root
     }
+
+
+    fun presentDowrFragment() {
+        view?.findNavController()?.navigate(R.id.dowrHomeFragment)
+    }
+
 }
