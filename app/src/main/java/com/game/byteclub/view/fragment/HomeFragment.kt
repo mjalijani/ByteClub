@@ -33,9 +33,4 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-
-    fun presentDowrFragment() {
-        view?.findNavController()?.navigate(R.id.dowrHomeFragment)
-    }
-
 }

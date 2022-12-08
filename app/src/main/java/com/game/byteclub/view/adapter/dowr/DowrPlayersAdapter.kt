@@ -28,10 +28,10 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == ITEM) {
+        return if (viewType == ITEM) {
             val binding: DowrPlayersItemBinding =
                 DowrPlayersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return ViewHolder(binding)
+            ViewHolder(binding)
         } else {
             val binding =
                 DowrAddPlayerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -40,7 +40,7 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 teams.add(TeamMates(Player(""), Player("")))
                 notifyItemInserted(itemCount - 1)
             }
-            return holder
+            holder
         }
     }
 
@@ -65,6 +65,11 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         } else {
             ITEM
         }
+    }
+
+    fun removeItem(position: Int) {
+        teams.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 

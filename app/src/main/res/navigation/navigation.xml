@@ -21,5 +21,13 @@
     <fragment
         android:id="@+id/dowrHomeFragment"
         android:name="com.game.byteclub.view.fragment.dowr.DowrHomeFragment"
-        android:label="DowrHomeFragment" />
+        android:label="DowrHomeFragment" >
+        <action
+            android:id="@+id/action_dowrHomeFragment_to_dowrCategoryFragment"
+            app:destination="@id/dowrCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dowrCategoryFragment"
+        android:name="com.game.byteclub.view.fragment.dowr.DowrCategoryFragment"
+        android:label="DowrCategoryFragment" />
 </navigation>
