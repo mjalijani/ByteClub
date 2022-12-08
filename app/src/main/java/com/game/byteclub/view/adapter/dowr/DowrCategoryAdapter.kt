@@ -5,34 +5,46 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.game.byteclub.BuildConfig
+import com.game.byteclub.R
 import com.game.byteclub.databinding.DowrCategoryItemBinding
+import com.game.byteclub.model.dowr.Category
 
 class DowrCategoryAdapter : RecyclerView.Adapter<DowrCategoryAdapter.ViewHolder>() {
 
 
-    private var categoryList = mutableListOf<String>()
+    private var categoryList = mutableListOf<Category>()
 
     init {
-        if (BuildConfig.DEBUG){
-            categoryList.add("Sport")
-            categoryList.add("Food")
-            categoryList.add("Names")
-            categoryList.add("Location")
-            categoryList.add("Job")
-            categoryList.add("Technology")
-            categoryList.add("Drinks")
-            categoryList.add("Cars")
+        if (BuildConfig.DEBUG) {
+            generateTestData()
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = DowrCategoryItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+    private fun generateTestData() {
+        categoryList.add(Category("Sport", true))
+        categoryList.add(Category("Food", true))
+        categoryList.add(Category("Names", true))
+        categoryList.add(Category("Location", true))
+        categoryList.add(Category("Job", true))
+        categoryList.add(Category("Technology", true))
+        categoryList.add(Category("Drinks", true))
+        categoryList.add(Category("Cars", true))
+    }
 
-        return ViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding =
+            DowrCategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val holder = ViewHolder(binding)
+        holder.itemView.setOnClickListener {
+            categoryList[holder.adapterPosition].select()
+            notifyItemChanged(holder.adapterPosition)
+        }
+        return holder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nameTv.text = categoryList[position]
+        holder.nameTv.text = categoryList[position].name
+        holder.updateView(categoryList[position].selected)
     }
 
     override fun getItemCount(): Int {
@@ -40,17 +52,29 @@ class DowrCategoryAdapter : RecyclerView.Adapter<DowrCategoryAdapter.ViewHolder>
     }
 
 
-    class ViewHolder(binding : DowrCategoryItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: DowrCategoryItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        var nameTv : TextView
+        var nameTv: TextView = binding.categoryNameTv
 
-        init {
-            nameTv = binding.categoryNameTv
+        fun updateView(selected: Boolean) {
+            if (selected) {
+                binding.categoryFl.setBackgroundDrawable(
+                    binding.root.context.resources.getDrawable(
+                        R.drawable.bg_rectangle_primary_rounded
+                    )
+                )
+                nameTv.setTextColor(binding.root.context.resources.getColor(R.color.secondary))
+            } else {
+                binding.categoryFl.setBackgroundDrawable(
+                    binding.root.context.resources.getDrawable(
+                        R.drawable.bg_rectangle_light_primary_roundted
+                    )
+                )
+                nameTv.setTextColor(binding.root.context.resources.getColor(R.color.primary_dark))
+            }
         }
 
     }
-
-
 
 
 }

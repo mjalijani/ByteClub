@@ -22,9 +22,13 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
         if (BuildConfig.DEBUG) {
-            teams.add(TeamMates(Player("Sepehr"), Player("Kianush")))
-            teams.add(TeamMates(Player("Akbar"), Player("Reza")))
+            generateTestData()
         }
+    }
+
+    private fun generateTestData() {
+        teams.add(TeamMates(Player("Sepehr"), Player("Kianush")))
+        teams.add(TeamMates(Player("Akbar"), Player("Reza")))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
