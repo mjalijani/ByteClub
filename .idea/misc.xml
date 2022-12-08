@@ -7,8 +7,10 @@
         <entry key="app/src/main/res/drawable/bg_rectangle_secondary_rounded.xml" value="0.127" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/layout/dowr_add_player.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout/dowr_category_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dowr_players_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dowr_category.xml" value="0.12239583333333333" />
+        <entry key="app/src/main/res/layout/fragment_dowr_configuration.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/fragment_dowr_home.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/games_item.xml" value="0.13333333333333333" />
