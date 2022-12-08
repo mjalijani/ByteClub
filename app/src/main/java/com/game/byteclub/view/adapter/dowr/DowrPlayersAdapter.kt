@@ -1,6 +1,7 @@
 package com.game.byteclub.view.adapter.dowr
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -34,19 +35,21 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         } else {
             val binding =
                 DowrAddPlayerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return AddPlayerViewHolder(binding)
+            val holder = AddPlayerViewHolder(binding)
+            holder.addPlayerIv.setOnClickListener {
+                teams.add(TeamMates(Player(""), Player("")))
+                notifyItemInserted(itemCount - 1)
+            }
+            return holder
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.setTeam(teams[position])
-        } else if (holder is AddPlayerViewHolder) {
-            holder.addPlayerIv.setOnClickListener {
-                teams.add(
-                    TeamMates(Player(""), Player(""))
-                )
-                notifyItemInserted(itemCount - 1)
+        } else {
+            if (itemCount > 10) {
+                (holder as AddPlayerViewHolder).itemView.visibility = View.GONE
             }
         }
 
