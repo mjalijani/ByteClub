@@ -2,7 +2,6 @@ package com.game.byteclub.view.adapter.dowr
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.game.byteclub.BuildConfig
@@ -10,7 +9,6 @@ import com.game.byteclub.databinding.DowrAddPlayerBinding
 import com.game.byteclub.databinding.DowrPlayersItemBinding
 import com.game.byteclub.model.dowr.Player
 import com.game.byteclub.model.dowr.TeamMates
-import com.game.byteclub.view.adapter.GamesAdapter
 
 class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -22,33 +20,33 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var teams = mutableListOf<TeamMates>()
 
     init {
-        if (BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             teams.add(TeamMates(Player("Sepehr"), Player("Kianush")))
             teams.add(TeamMates(Player("Akbar"), Player("Reza")))
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == ITEM){
+        if (viewType == ITEM) {
             val binding: DowrPlayersItemBinding =
                 DowrPlayersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return ViewHolder(binding)
-        }else {
-            val binding = DowrAddPlayerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        } else {
+            val binding =
+                DowrAddPlayerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return AddPlayerViewHolder(binding)
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
-            holder.firstPlayer.setText(teams[position].firstPlayer.name)
-            holder.secondPlayer.setText(teams[position].secondPlayer.name)
+            holder.setTeam(teams[position])
         } else if (holder is AddPlayerViewHolder) {
             holder.addPlayerIv.setOnClickListener {
                 teams.add(
-                    TeamMates(Player("player"), Player("player"))
+                    TeamMates(Player(""), Player(""))
                 )
-                notifyItemInserted(itemCount-1)
+                notifyItemInserted(itemCount - 1)
             }
         }
 
@@ -67,14 +65,10 @@ class DowrPlayersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
 
-    class ViewHolder(binding: DowrPlayersItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: DowrPlayersItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        val firstPlayer: EditText
-        val secondPlayer: EditText
-
-        init {
-            firstPlayer = binding.firstPlayerEt
-            secondPlayer = binding.secondPlayer
+        fun setTeam(teamMates: TeamMates) {
+            binding.team = teamMates
         }
 
     }
