@@ -2,6 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.game.byteclub.viewModel.dowr.DowrHomeViewModel" />
@@ -10,29 +11,54 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
         android:background="@color/secondary"
+        android:orientation="vertical"
         tools:context=".view.fragment.dowr.DowrHomeFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="cursive"
+                android:gravity="start|center_vertical"
+                android:text="Teams"
+                android:textColor="@color/primary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary" />
+
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/dowr_rv"
-            android:adapter="@{viewModel.adapter}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_gravity="top"
             android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
             android:layout_weight="1"
-            android:layout_height="0dp"/>
+            android:adapter="@{viewModel.adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/bg_rectangle_primary_rounded"
-            android:text="Next"
-            android:onClick="@{viewModel.presentCategory}"
-            android:gravity="center"
-            android:textColor="@color/secondary"
             android:layout_margin="8dp"
+            android:background="@drawable/bg_rectangle_primary_rounded"
+            android:gravity="center"
+            android:onClick="@{viewModel.presentCategory}"
+            android:text="Next"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
 
             />
 

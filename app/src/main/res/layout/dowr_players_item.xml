@@ -3,19 +3,19 @@
 <layout>
 
     <data>
+
         <variable
             name="team"
             type="com.game.byteclub.model.dowr.TeamMates" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:weightSum="10"
-        android:layout_marginVertical="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        >
+        android:layout_marginVertical="8dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
 
 
         <EditText
@@ -23,34 +23,31 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:padding="8dp"
+            android:background="@drawable/bg_rectangle_primary_rounded"
             android:hint="player1"
+            android:padding="8dp"
             android:text="@{team.firstPlayer.name}"
             android:textColor="@color/secondary_light"
-            android:textColorHint="@color/primary_light"
-            android:background="@drawable/bg_rectangle_primary_rounded"
-            />
+            android:textColorHint="@color/primary_light" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
             android:layout_gravity="center"
-            android:src="@drawable/ic_friends_dowr"
-            />
+            android:layout_weight="2"
+            android:src="@drawable/ic_friends_dowr" />
 
         <EditText
             android:id="@+id/second_player"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:background="@drawable/bg_rectangle_primary_rounded"
+            android:hint="player2"
             android:padding="8dp"
             android:text="@{team.secondPlayer.name}"
-            android:hint="player2"
             android:textColor="@color/secondary_light"
-            android:textColorHint="@color/primary_light"
-            android:background="@drawable/bg_rectangle_primary_rounded"
-            />
+            android:textColorHint="@color/primary_light" />
 
 
     </LinearLayout>

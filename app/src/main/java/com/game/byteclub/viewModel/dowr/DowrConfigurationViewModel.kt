@@ -25,10 +25,12 @@ class DowrConfigurationViewModel(val binding: FragmentDowrConfigurationBinding) 
     fun enabledClick(view: View) {
         if (helper) {
             view.setBackgroundDrawable(binding.root.context.resources.getDrawable(R.drawable.bg_rectangle_light_primary_roundted))
-            (view as TextView).text = "Disabled"
+            (view as TextView).setTextColor(binding.root.context.resources.getColor(R.color.primary_dark))
+            view.text = "Disabled"
         } else {
             view.setBackgroundDrawable(binding.root.context.resources.getDrawable(R.drawable.bg_rectangle_primary_rounded))
-            (view as TextView).text = "Enabled"
+            (view as TextView).setTextColor(binding.root.context.resources.getColor(R.color.secondary))
+            view.text = "Enabled"
         }
         helper = !helper
     }
