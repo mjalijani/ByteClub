@@ -1,10 +1,12 @@
 package com.game.byteclub.view.activity
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.findNavController
 import com.game.byteclub.R
 
 class MainActivity : AppCompatActivity() {

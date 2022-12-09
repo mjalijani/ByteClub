@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.game.byteclub.databinding.FragmentDowrConfigurationBinding
 import com.game.byteclub.viewModel.dowr.DowrConfigurationViewModel
+
 
 class DowrConfigurationFragment : Fragment() {
 
@@ -18,6 +21,15 @@ class DowrConfigurationFragment : Fragment() {
         DowrConfigurationViewModel(binding)
     }
 
+    val callback: OnBackPressedCallback by lazy {
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,6 +40,9 @@ class DowrConfigurationFragment : Fragment() {
         viewModel.roundLimit.observe(this) {
             binding.roundValueTv.text = it.toString()
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+
     }
 
 
@@ -39,4 +54,6 @@ class DowrConfigurationFragment : Fragment() {
         binding.viewModel = viewModel
         return binding.root
     }
+
+
 }
