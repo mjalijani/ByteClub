@@ -10,17 +10,24 @@ import com.game.byteclub.viewModel.dowr.DowrConfigurationViewModel
 
 class DowrConfigurationFragment : Fragment() {
 
-    val binding : FragmentDowrConfigurationBinding by lazy {
+    val binding: FragmentDowrConfigurationBinding by lazy {
         FragmentDowrConfigurationBinding.inflate(layoutInflater)
     }
 
-    val viewModel : DowrConfigurationViewModel by lazy {
-        DowrConfigurationViewModel()
+    val viewModel: DowrConfigurationViewModel by lazy {
+        DowrConfigurationViewModel(binding)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.viewModel = viewModel
+
+        viewModel.timer.observe(this) {
+            binding.timeTv.text = it.toString()
+        }
+
+        viewModel.roundLimit.observe(this) {
+            binding.roundValueTv.text = it.toString()
+        }
     }
 
 
@@ -28,7 +35,8 @@ class DowrConfigurationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding.viewModel = viewModel
         return binding.root
     }
 }

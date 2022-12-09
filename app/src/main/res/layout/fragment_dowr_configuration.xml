@@ -16,6 +16,140 @@
         android:background="@color/secondary"
         tools:context=".view.fragment.dowr.DowrConfigurationFragment">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Timer"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="start|center_vertical"
+                android:textColor="@color/primary"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="end">
+
+                <ImageView
+                    android:id="@+id/decrease_time_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:onClick="@{viewModel.decreaseTime}"
+                    android:src="@drawable/ic_baseline_remove_circle_24"/>
+
+                <TextView
+                    android:id="@+id/time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="4"
+                    android:layout_marginHorizontal="8dp"
+                    android:textColor="@color/primary"/>
+
+                <ImageView
+                    android:id="@+id/increase_time_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:onClick="@{viewModel.increaseTime }"
+                    android:src="@drawable/ic_baseline_add_circle_24"/>
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="Rounds"
+                android:layout_gravity="start|center_vertical"
+                android:textColor="@color/primary"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="end">
+
+                <ImageView
+                    android:id="@+id/decrease_round_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:onClick="@{viewModel.decreaseRound}"
+                    android:src="@drawable/ic_baseline_remove_circle_24"/>
+
+                <TextView
+                    android:id="@+id/round_value_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="8dp"
+                    android:textColor="@color/primary"/>
+
+                <ImageView
+                    android:id="@+id/increase_round_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:onClick="@{viewModel.increaseRound}"
+                    android:src="@drawable/ic_baseline_add_circle_24"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Helper"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_gravity="start|center_vertical"
+                android:textColor="@color/primary"/>
+
+            <TextView
+                android:id="@+id/helper_enable_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textColor="@color/secondary"
+                android:onClick="@{viewModel.enabledClick}"
+                android:padding="8dp"
+                android:background="@drawable/bg_rectangle_primary_rounded"
+                android:text="Enabled"/>
+
+
+        </FrameLayout>
+
+
+
     </LinearLayout>
 
 </layout>
