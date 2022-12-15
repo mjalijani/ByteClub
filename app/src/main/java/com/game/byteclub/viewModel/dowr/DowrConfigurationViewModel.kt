@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.game.byteclub.R
 import com.game.byteclub.databinding.FragmentDowrConfigurationBinding
+import com.game.byteclub.repository.DowrRepository
 
 class DowrConfigurationViewModel(val binding: FragmentDowrConfigurationBinding) : ViewModel() {
 
@@ -65,6 +66,19 @@ class DowrConfigurationViewModel(val binding: FragmentDowrConfigurationBinding) 
                 roundLimit.postValue(it.dec())
             }
         }
+    }
+
+
+    //todo : for later
+    private val categoryRepository: DowrRepository by lazy {
+        DowrRepository()
+    }
+
+    private var categoryResponseLiveData: MutableLiveData<List<String>> =
+        categoryRepository.getCategory()
+
+    fun getCategory(name: String) {
+        categoryRepository.getCategory(name)
     }
 
 }

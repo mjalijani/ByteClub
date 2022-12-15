@@ -12,7 +12,7 @@ import com.game.byteclub.model.dowr.Category
 class DowrCategoryAdapter : RecyclerView.Adapter<DowrCategoryAdapter.ViewHolder>() {
 
 
-    private var categoryList = mutableListOf<Category>()
+    var categoryList = mutableListOf<Category>()
 
     init {
         if (BuildConfig.DEBUG) {
