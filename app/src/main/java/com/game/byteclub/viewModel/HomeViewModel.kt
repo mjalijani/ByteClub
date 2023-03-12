@@ -1,8 +1,6 @@
 package com.game.byteclub.viewModel
 
 import androidx.lifecycle.ViewModel
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.game.byteclub.R
